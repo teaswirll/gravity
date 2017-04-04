@@ -24,6 +24,11 @@ public class PendulumRunner {
 	int iterations = (int) (1/delta);
 	System.out.println ("analytical vs. numerical displacement (fine, coarse)");
 	for (int second = 1; second <= 20; second++) {
+		if( second == 5) {
+			rp.setGravityModel(new GravityConstant(25));
+			sp.setGravityModel(new GravityConstant(25));
+			rpCoarse.setGravityModel(new GravityConstant(25));
+		}
 	    for (int i = 0; i < iterations; i++) rp.step ();
 	    for (int i = 0; i < 10; i++) rpCoarse.step (); 
 	    System.out.println ("t=" + second + "s: \t" + 
